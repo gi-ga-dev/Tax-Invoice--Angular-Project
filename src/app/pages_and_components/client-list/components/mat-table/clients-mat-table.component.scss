@@ -1,0 +1,86 @@
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+}
+
+/* ----------------- */
+
+table {
+    width: 100%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+    font-size: 1.1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+#title {
+    font-weight: bold;
+    margin: auto;
+    font-size: 1.2em;
+    border: 1px solid black;
+    background-color: rgba(97, 97, 97, 0.4);
+    border-radius: 10px;
+    line-height: 1.5em;
+}
+
+#description {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#desc-cont {
+    text-align: center;
+}
+
+#table-cont {
+    background-color: rgb(230, 230, 230);
+}

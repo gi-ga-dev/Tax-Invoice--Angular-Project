@@ -1,0 +1,117 @@
+<mat-form-field appearance="standard">
+    <mat-label>Ricerca Cliente</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Es. Mario Rossi" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+
+    <div class="mat-elevation-z8">
+
+        <table id="table-cont" mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+                <!-- se la colonna corrisp. e' === all'elem nell'array, nella colonna riporta un intestazione diversa -->
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <p *ngIf="column === displayedColumns[0]">ID Cliente: </p>
+                    <p *ngIf="column === displayedColumns[1]">Nome: </p>
+                    <p *ngIf="column === displayedColumns[2]">Cognome: </p>
+                    <p *ngIf="column === displayedColumns[3]">P.Iva: </p>
+                    <p *ngIf="column === displayedColumns[4]">Email: </p>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <!-- Dati da inserire nell'expandable -->
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let client" [attr.colspan]="columnsToDisplayWithExpand.length">
+                    <div class="example-element-detail"
+                        [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
+                        <div class="example-element-description">
+                            <!-- Qui inseriro' i dati completi degli input -->
+                            <span id="title">--- Anagrafica: ---</span>
+                            <div class="container">
+                                <p id="desc-cont"><span id="description">ID Cliente: </span>{{client.id}}
+                                    <span id="description">Nome: </span>{{client.nomeCliente}}
+                                    <span id="description">Cognome: </span>{{client.cognomeCliente}}
+                                    <span id="description">Ragione Sociale: </span>{{client.ragioneSociale}}
+                                    <span id="description">P.Iva: </span>{{client.partitaIva}}
+                                    <span id="description">Tipo Cliente: </span>{{client.tipoCliente}}
+                                </p>
+                            </div>
+
+                            <span id="title">--- Recapiti: ---</span>
+                            <div class="container">
+                                <p id="desc-cont">
+                                    <span id="description">Telefono: </span>{{client.telefono}}
+                                    <span id="description">Email: </span>{{client.email}}
+                                    <span id="description">Pec: </span>{{client.pec}}
+                                </p>
+                            </div>
+
+                            <span id="title">--- Indirizzo Sede Operativa: ---</span>
+                            <div class="container">
+                                <p id="desc-cont">
+                                    <span id="description">Via: </span>{{client.indirizzoSedeOperativa.via}}
+                                    <span id="description">n. </span>{{client.indirizzoSedeOperativa.civico}}
+                                    <span id="description">Cap: </span>{{client.indirizzoSedeOperativa.cap}}
+                                    <span id="description">Comune:
+                                    </span>{{client.indirizzoSedeOperativa.localita.comune}}
+                                    <span id="description">Comune:
+                                    </span>{{client.indirizzoSedeOperativa.localita.provincia}}
+                                </p>
+                            </div>
+
+                            <span id="title">--- Indirizzo Sede Legale: ---</span>
+                            <div class="container">
+                                <p id="desc-cont">
+                                    <span id="description">Via: </span>{{client.indirizzoSedeLegale.via}}
+                                    <span id="description">n. </span>{{client.indirizzoSedeLegale.civico}}
+                                    <span id="description">Cap: </span>{{client.indirizzoSedeLegale.cap}}
+                                    <span id="description">Comune: </span>{{client.indirizzoSedeLegale.localita.comune}}
+                                    <span id="description">Comune:
+                                    </span>{{client.indirizzoSedeLegale.localita.provincia}}
+                                </p>
+                            </div>
+                            <button mat-button (click)="removeClient(client.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+
+                            <button mat-button (click)="saveClient(client)">
+                                <mat-icon>border_color</mat-icon>
+                            </button>
+
+                            <a mat-button (click)="saveForInvoices(client)" href="#"
+                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active"> Fatture
+                            </a>
+
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nessun cliente registrato</td>
+            </tr>
+
+        </table>
+
+        <mat-paginator id="table-cont" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users">
+        </mat-paginator>
+    </div>

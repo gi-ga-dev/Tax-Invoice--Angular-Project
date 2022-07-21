@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "email": "emanuel1999emy@gmail.com",
+      "password": "$2a$10$Tfrb77x5hnOfkkL6B3CBZeE/nbSOEhdEBV/5/XmaJyMlUozv4yznS",
+      "firstname": "Tanemil",
+      "lastname": "fdsfsd",
+      "id": 1
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "$2a$10$0dNUb2hBEzf1NvcXvQUviOWUD4qhITo58f79zQJb9Jd6zU7APjB2O",
+      "firstname": "Gianluca",
+      "lastname": "Gallone",
+      "id": 2
+    },
+    {
+      "email": "cloud.gianluca@gmail.com",
+      "password": "$2a$10$m1sCpJaPur.Khgjbpn6xLOiLQ52H5.1X2hRrE4lQe9D3ssCLt7wfa",
+      "firstname": "Gianluca",
+      "lastname": "Gallone",
+      "id": 3
+    }
+  ],
+  "clients": [
+    {
+      "id": 2,
+      "nomeCliente": "MORENA",
+      "cognomeCliente": "Velit ut provident",
+      "ragioneSociale": "Id aperiam sint bea",
+      "partitaIva": 26,
+      "tipoCliente": "Et culpa distinctio",
+      "telefono": 36,
+      "email": "sajegomota@mailinator.com",
+      "pec": "qohyj@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Vitae cum nihil veri",
+        "civico": 9,
+        "cap": 27,
+        "localita": {
+          "comune": "Vel dolor hic in dol",
+          "provincia": "Non beatae laborum v"
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Odio labore consequa",
+        "civico": 12,
+        "cap": 75,
+        "localita": {
+          "comune": "Sunt veniam et mod",
+          "provincia": "Quia et sint tempor"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "nomeCliente": "Laudantium at nobis",
+      "cognomeCliente": "Aut saepe velit accu",
+      "ragioneSociale": "Ea magna quis rem mi",
+      "partitaIva": 23,
+      "tipoCliente": "Excepturi necessitat",
+      "telefono": 98,
+      "email": "hewejef@mailinator.com",
+      "pec": "huvodoj@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Dolores elit quia m",
+        "civico": 29,
+        "cap": 93,
+        "localita": {
+          "comune": "Voluptas reiciendis ",
+          "provincia": "Et ex et deserunt ad"
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Dolor do exercitatio",
+        "civico": 61,
+        "cap": 28,
+        "localita": {
+          "comune": "Tempor enim esse in",
+          "provincia": "Dolorem laborum Lib"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "nomeCliente": "knvvkpdmmvkp",
+      "cognomeCliente": "Quo praesentium est",
+      "ragioneSociale": "Culpa qui ut qui ali",
+      "partitaIva": 24,
+      "tipoCliente": "Velit ad minus et co",
+      "telefono": 16,
+      "email": "nytetu@mailinator.com",
+      "pec": "xidob@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Et Nam elit non eni",
+        "civico": 48,
+        "cap": 66,
+        "localita": {
+          "comune": "Et dolore delectus ",
+          "provincia": "Atque ullamco volupt"
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Ullam quia earum et ",
+        "civico": 86,
+        "cap": 61,
+        "localita": {
+          "comune": "Quae magna consequat",
+          "provincia": "Sunt ipsum ullamco "
+        }
+      }
+    }
+  ],
+  "taxes": [
+    {
+      "id": 1,
+      "idCliente": 4,
+      "descrizione": "Possimus incidunt ",
+      "natura": "Quis qui facilis ali",
+      "quantita": 55,
+      "data": "2015-03-21",
+      "scadenza": "1985-01-18",
+      "importo": 48
+    },
+    {
+      "id": 3,
+      "idCliente": 2,
+      "descrizione": "Ea illo amet dolore",
+      "natura": "Illo doloribus alias",
+      "quantita": 39,
+      "data": "2012-08-07",
+      "scadenza": "1980-12-23",
+      "importo": 55
+    },
+    {
+      "id": 4,
+      "idCliente": 3,
+      "descrizione": "Inventore laboriosam",
+      "natura": "Corrupti natus expl",
+      "quantita": 16,
+      "data": "2022-01-12",
+      "scadenza": "2020-03-03",
+      "importo": 4
+    },
+    {
+      "id": 2,
+      "idCliente": 2,
+      "descrizione": "Id aliquacdvdvm dolore do",
+      "natura": "Maiores nulla in qui",
+      "quantita": 38,
+      "data": "1971-02-15",
+      "scadenza": "1975-01-24",
+      "importo": 61
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+#form-title {
+    justify-content: center;
+}
+
+#card-cont {
+    justify-content: center
+}
+
+.example-card {
+    max-width: 100%;
+    margin-bottom: 8px;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+}
+
+#form-cont {
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+}
+
+// :host si riferisce a questo componente e i suoi discendenti solamente
+// ::ng-deep fa diventare la classe globale, oppure si usa per selezionare classi interne material
+
+:host ::ng-deep .mat-form-field-infix {
+    // dimensioni campi input
+    width: 150px !important;
+    height: 40px !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    // dimensioni interno input
+    font-size: 0.6em !important;
+    text-align: center !important;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+    // margine tra le righe di input
+    margin-bottom: -30px !important;
+}

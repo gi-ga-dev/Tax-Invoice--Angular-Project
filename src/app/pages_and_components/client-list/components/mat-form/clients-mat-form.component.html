@@ -1,0 +1,132 @@
+<br>
+<form id="form-cont" #f="ngForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <br>
+    <h2><b>Dati Anagrafici:</b></h2>
+
+    <mat-form-field appearance="fill">
+        <mat-label>ID Cliente</mat-label>
+        <input matInput type="number" formControlName="id" readonly="true">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nome Cliente</mat-label>
+        <input matInput type="text" formControlName="nomeCliente">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Cognome Cliente</mat-label>
+        <input matInput type="text" formControlName="cognomeCliente">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Ragione Sociale</mat-label>
+        <input matInput type="text" formControlName="ragioneSociale">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Partita Iva</mat-label>
+        <input matInput type="number" formControlName="partitaIva">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo Cliente</mat-label>
+        <input matInput type="text" formControlName="tipoCliente">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Recapito Telefonico</mat-label>
+        <input matInput type="number" formControlName="telefono">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Pec</mat-label>
+        <input matInput type="email" formControlName="pec">
+    </mat-form-field>
+
+    <div formGroupName="indirizzoSedeOperativa">
+
+        <h2><b>Indirizzo Sede Operativa</b></h2>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Via</mat-label>
+            <input matInput type="text" formControlName="via">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>N. civico</mat-label>
+            <input matInput type="number" formControlName="civico">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cap</mat-label>
+            <input matInput type="number" formControlName="cap">
+        </mat-form-field>
+
+        <div formGroupName="localita">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Comune</mat-label>
+                <input matInput type="text" formControlName="comune">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <input matInput type="text" formControlName="provincia">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div formGroupName="indirizzoSedeLegale">
+
+        <h2><b>Indirizzo Sede Legale</b></h2>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Via</mat-label>
+            <input matInput type="text" formControlName="via">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>N. civico</mat-label>
+            <input matInput type="number" formControlName="civico">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cap</mat-label>
+            <input matInput type="number" formControlName="cap">
+        </mat-form-field>
+
+        <div formGroupName="localita">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Comune</mat-label>
+                <input matInput type="text" formControlName="comune">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <input matInput type="text" formControlName="provincia">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <br>
+
+    <button mat-button type="submit">Aggiungi Cliente</button>
+
+</form>
+
+<mat-card class="example-card">
+    <mat-card-content>
+        <button mat-button (click)="modClient(idCliente)">Modifica Cliente</button>
+        <button mat-button (click)="clearFields()">Cancella Campi</button>
+    </mat-card-content>
+</mat-card>
