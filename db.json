@@ -25,7 +25,7 @@
   "clients": [
     {
       "id": 7,
-      "nomeCliente": "Mario",
+      "nomeCliente": "Maria",
       "cognomeCliente": "Rossi",
       "ragioneSociale": "SRL",
       "partitaIva": 86334519757,
@@ -53,5 +53,16 @@
       }
     }
   ],
-  "taxes": []
+  "taxes": [
+    {
+      "id": 1,
+      "idCliente": 7,
+      "descrizione": "Impedit aut quia mo",
+      "natura": "Sed adipisicing exce",
+      "quantita": 96,
+      "data": "1991-04-02",
+      "scadenza": "1975-01-08",
+      "importo": 71
+    }
+  ]
 }
