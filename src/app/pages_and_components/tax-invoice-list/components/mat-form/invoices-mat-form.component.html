@@ -1,78 +1,50 @@
-<br>
-<mat-card class="example-card">
-  <mat-card-title-group id="card-cont">
-    <mat-card-title>#{{parsedClient.id}} {{parsedClient.nomeCliente}} {{parsedClient.cognomeCliente}}
-    </mat-card-title>
-    <mat-card-subtitle>
-      Telefono: {{parsedClient.telefono}}
-      Email: {{parsedClient.email}}
-      Pec: {{parsedClient.pec}}
-    </mat-card-subtitle>
-
-  </mat-card-title-group>
-  <mat-card-content>
-    Ragione Sociale: {{parsedClient.ragioneSociale}}
-    Partita Iva: {{parsedClient.partitaIva}}
-    Tipo Cliente: {{parsedClient.tipoCliente}}
-
-  </mat-card-content>
-</mat-card>
-
-<!-- ========================================================================================= -->
-
 <form id="form-cont" #fInvoices="ngForm" [formGroup]="invoicesForm" (ngSubmit)="onSubmit()">
 
-  <mat-form-field appearance="fill">
-    <mat-label>ID Fattura</mat-label>
-    <input matInput type="number" formControlName="id" readonly="true">
-  </mat-form-field>
+  <h2 id="title"><b>Form Aggiungi Fattura:</b></h2>
 
-  <mat-form-field appearance="fill">
-    <mat-label>ID Cliente</mat-label>
-    <input matInput type="number" formControlName="idCliente" readonly="true">
-  </mat-form-field>
+  <hr>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Descrizione</mat-label>
-    <input matInput type="text" formControlName="descrizione">
-  </mat-form-field>
+  <div class="details-cont">
+    <mat-form-field appearance="fill">
+      <mat-label>Descrizione</mat-label>
+      <input matInput type="text" formControlName="descrizione">
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Natura Bene/Servizio</mat-label>
-    <input matInput type="text" formControlName="natura">
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Natura Bene/Servizio</mat-label>
+      <input matInput type="text" formControlName="natura">
+    </mat-form-field>
 
-  <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantita</mat-label>
+      <input matInput type="number" formControlName="quantita">
+    </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Quantita</mat-label>
-    <input matInput type="number" formControlName="quantita">
-  </mat-form-field>
+  <div class="details-cont">
+    <mat-form-field appearance="fill">
+      <mat-label>Data Emissione</mat-label>
+      <input matInput type="date" formControlName="data">
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Data Emissione</mat-label>
-    <input matInput type="date" formControlName="data">
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Scadenza Pagamento</mat-label>
+      <input matInput type="date" formControlName="scadenza">
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Scadenza Pagamento</mat-label>
-    <input matInput type="date" formControlName="scadenza">
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Importo</mat-label>
+      <input matInput type="number" formControlName="importo">
+    </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Importo</mat-label>
-    <input matInput type="number" formControlName="importo">
-  </mat-form-field>
-
-  <br>
-
-  <button mat-button type="submit">Aggiungi</button>
+  <div class="btn-submit">
+    <button mat-button type="submit">Aggiungi</button>
+  </div>
 
 </form>
 
-<mat-card class="example-card">
-  <mat-card-content>
-    <button mat-button (click)="modInvoice(idInvoice)">Modifica Campi</button>
-    <button mat-button (click)="clearFields()">Cancella Campi</button>
-  </mat-card-content>
-</mat-card>
+<div class="btn-cont">
+  <button mat-button (click)="modInvoice(idInvoice)">Modifica Campi</button>
+  <button mat-button (click)="clearFields()">Cancella Campi</button>
+</div>

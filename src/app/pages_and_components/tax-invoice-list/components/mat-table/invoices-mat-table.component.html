@@ -46,36 +46,46 @@
                     <div class="example-element-detail"
                         [@detailExpand]="invoice == expandedElement ? 'expanded' : 'collapsed'">
                         <div class="example-element-description">
-                            <span id="title">--- Dati Fattura: ---</span>
-                            <div class="container">
-                                <p id="desc-cont">
-                                    <span id="description">ID Fattura: </span>{{invoice.id}}
-                                    <span id="description">ID Cliente: </span>{{invoice.idCliente}}
-                                    <span id="description">Natura beni: </span>{{invoice.natura}}
-                                    <span id="description">Quantita: </span>{{invoice.quantita}}
-                                </p>
+
+                            <mat-card class="example-card">
+                                <mat-card-title-group id="card-cont">
+                                    <mat-card-title>#{{invoice.id}} - Riepilogo Fattura:
+                                    </mat-card-title>
+                                    <mat-card-subtitle>
+                                        <b>ID Cliente:</b> {{invoice.idCliente}}
+                                        <b>Nome:</b> {{parsedClient.nomeCliente}}
+                                        <b>Cognome:</b> {{parsedClient.cognomeCliente}}
+                                        <b>Telefono:</b> {{parsedClient.telefono}}
+                                        <b>Email:</b> {{parsedClient.email}}
+                                        <b>Pec:</b> {{parsedClient.pec}}
+                                    </mat-card-subtitle>
+
+                                </mat-card-title-group>
+                                <mat-card-content>
+                                    <b>Descrizione:</b> {{invoice.descrizione}}
+                                    <b>Natura beni:</b> {{invoice.natura}}
+                                    <b>Quantita:</b> {{invoice.quantita}}
+                                    <b>Data Emissione:</b> {{invoice.data}}
+                                    <b>Scadenza Pagamento:</b> {{invoice.scadenza}}
+                                    <b>Importo:</b> €{{invoice.importo}}
+                                </mat-card-content>
+                            </mat-card>
+
+                            <div class="btn-cont">
+                                <!-- Button Rimuovi Fattura, Modifica Dati, Torna a client_list -->
+                                <button mat-button (click)="removeInvoice(invoice.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+
+                                <!-- Salvo dati dell'invoice nel sessionStorage -->
+                                <button mat-button (click)="saveInvoice(invoice)">
+                                    <mat-icon>border_color</mat-icon>
+                                </button>
+
+                                <button mat-button (click)="printInvoice()">
+                                    <mat-icon>print</mat-icon>
+                                </button>
                             </div>
-
-                            <div class="container">
-                                <p id="desc-cont">
-                                    <span id="description">Data Emissione: </span>{{invoice.data}}
-                                    <span id="description">Scadenza pagamento: </span>{{invoice.scadenza}}
-                                    <span id="description">Importo: € </span>{{invoice.importo}}
-                                </p>
-                            </div>
-                            <!-- Button Rimuovi Fattura, Modifica Dati, Torna a client_list -->
-                            <button mat-button (click)="removeInvoice(invoice.id)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-
-                            <!-- Salvo dati dell'invoice nel sessionStorage -->
-                            <button mat-button (click)="saveInvoice(invoice)">
-                                <mat-icon>border_color</mat-icon>
-                            </button>
-
-                            <button mat-button (click)="printInvoice()">
-                                <mat-icon>print</mat-icon>
-                            </button>
 
                             <!-- =============== Sezione Print ================= -->
 

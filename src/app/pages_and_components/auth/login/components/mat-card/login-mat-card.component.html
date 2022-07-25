@@ -1,13 +1,13 @@
 <form #f="ngForm" (ngSubmit)="onSubmit()">
     <mat-card class="example-card">
 
-        <mat-card-title>Login Page</mat-card-title>
-        <mat-card-subtitle>Please insert Login details</mat-card-subtitle>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>Inserisci i tuoi dati di accesso.</mat-card-subtitle>
 
         <mat-card-content>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Enter your email</mat-label>
+            <mat-form-field color="warn" appearance="fill">
+                <mat-label>Inserisci la tua email</mat-label>
                 <input matInput ngModel name="email" type="email" id="email" placeholder="pat@example.com">
                 <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
@@ -16,8 +16,8 @@
 
         <mat-card-content>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Enter your password</mat-label>
+            <mat-form-field color="warn" appearance="fill">
+                <mat-label>Inserisci la tua password</mat-label>
                 <input matInput ngModel name="password" id="password" [type]="hide ? 'password' : 'text'">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
@@ -28,12 +28,14 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-button type="submit">Submit</button>
+            <button mat-button type="submit">Accedi</button>
         </mat-card-actions>
 
-        <mat-card-footer>
-            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            <div *ngIf="error"> {{error}} </div>
+        <mat-card-footer *ngIf="show">
+            <mat-progress-bar color="warn" mode="indeterminate"></mat-progress-bar>
+            <div *ngIf="error">
+                <p id="error">Email e password sono obbligatori</p>
+            </div>
         </mat-card-footer>
 
     </mat-card>

@@ -1,7 +1,7 @@
-import { NavigationEnd, Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -21,6 +21,8 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
     this.restoreUserLogin();
   }
+
+  /* ============ Login/Register ============ */
 
   restoreUserLogin() {
     const json = localStorage.getItem('isAuthenticated');
@@ -54,15 +56,13 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  /* -------------------------------------------------------- */
+  /* ============ Post/Delete ============ */
 
   /* rimuove tutte le fatture relative a quel cliente */
   removeTaxes(element: ITaxesData) {
-    let id_elemento_da_cancellare = element.id;
-    return this.http.delete('http://localhost:4201/taxes/' + id_elemento_da_cancellare) // taxes.cliente.id
+    let idEleToDelete = element.id;
+    return this.http.delete('http://localhost:4201/taxes/' + idEleToDelete) // taxes.cliente.id
   }
-
-  /* ------------------------------------------- */
 
   /* rimuove la singola fattura al click */
   removeInvoiceS(id: number): Observable<Object> {
@@ -88,17 +88,13 @@ export class AuthService {
     return this.http.delete('http://localhost:4201/taxes/' + idInvoice) // taxes.id
   }
 
-
-
-
-
   /* rimuove il singolo cliente al click */
   removeClientS(id: number): Observable<Object> {
     return this.http.delete('http://localhost:4201/clients/' + id); //clients.id
   }
 
   /* aggiunge valori di ritorno del form, al db */
-  add_client(obj: IClientsData) {
+  addClient(obj: IClientsData) {
     return this.http.post(this.urlJsonServer + '/clients', obj); //clients
   }
 
@@ -114,7 +110,8 @@ export class AuthService {
     return this.http.get(this.urlJsonServer + '/clients' + id);
   }
 
-  /* ------ Reload della rotta (non del browser) -------- */
+  /* ======= Reload della rotta (non del browser) ======= */
+
   reloadRoute() {
     const currentRoute = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -122,8 +119,19 @@ export class AuthService {
     });
   }
 
+  /* ======= Pulizia sessionStorage ======= */
+
   deleteStorage(): void {
     sessionStorage.removeItem('storedClient');
+  }
+
+  deleteInvoices(): void {
+    sessionStorage.removeItem('storedInvoice');
+  }
+
+  deleteAllData(): void {
+    sessionStorage.removeItem('storedClient');
+    sessionStorage.removeItem('storedInvoice');
   }
 
 }

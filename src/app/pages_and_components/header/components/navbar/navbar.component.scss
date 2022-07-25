@@ -4,6 +4,23 @@
     height: 50px;
 }
 
-#raised {
+:host ::ng-deep .mat-button {
     color: white;
+}
+
+:host ::ng-deep .mat-button:hover {
+    color: rgb(239, 52, 65);
+    background-color: rgba(239, 52, 65, 0.108);
+}
+
+#img-logo {
+    width: 40%;
+}
+
+.logo-cont {
+    width: 150px;
+}
+
+.logo-cont:hover {
+    background-color: rgb(57, 57, 57);
 }

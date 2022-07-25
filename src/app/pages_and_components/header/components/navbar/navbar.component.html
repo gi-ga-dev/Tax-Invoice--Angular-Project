@@ -1,24 +1,29 @@
 <mat-toolbar id="toolbar-cont">
     <div class="container">
-        <a mat-button id="raised" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
+
+        <a mat-button [routerLink]="['/home']" routerLinkActive="router-link-active" class="logo-cont"
+            (click)="deleteAllData()">
+            <img src="../../../assets/img-logo.png" id="img-logo">
+        </a>
+
+        <a mat-button href="#" [routerLink]="['/home']" routerLinkActive="router-link-active" (click)="deleteAllData()">
             <mat-icon>home</mat-icon> Home
         </a>
 
-        <a mat-button id="raised" href="#" [routerLink]="['/client_list']" routerLinkActive="router-link-active">
+        <a mat-button href="#" [routerLink]="['/client_list']" routerLinkActive="router-link-active"
+            (click)="deleteAllData()">
             <mat-icon>business_center</mat-icon> Lista Clienti
         </a>
 
-        <a mat-button id="raised" href="#" *ngIf="showLogin" [routerLink]="['/login']"
-            routerLinkActive="router-link-active">
+        <a mat-button href="#" *ngIf="showLogin" [routerLink]="['/login']" routerLinkActive="router-link-active">
             <mat-icon>login</mat-icon> Login
         </a>
 
-        <button mat-button id="raised" type="button" *ngIf="showLogout" (click)="logout()">
+        <button mat-button type="button" *ngIf="showLogout" (click)="logout()">
             <mat-icon>logout</mat-icon> Logout
         </button>
 
-        <a mat-button id="raised" href="#" *ngIf="showSignUp" [routerLink]="['/signup']"
-            routerLinkActive="router-link-active">
+        <a mat-button href="#" *ngIf="showSignUp" [routerLink]="['/signup']" routerLinkActive="router-link-active">
             <mat-icon>lock_open</mat-icon> Signup
         </a>
     </div>

@@ -1,15 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActualClientIdService } from 'src/app/pages_and_components/actual-client-id.service';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Router } from '@angular/router';
 import { ITaxesData } from '../../interfaces/itaxes-data';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ThisReceiver } from '@angular/compiler';
 import { IClientsData } from 'src/app/pages_and_components/client-list/interfaces/iclients-data';
 
 @Component({
@@ -44,11 +41,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
   error = undefined;
   print: boolean = false;
 
-  constructor(
-    private authService: AuthService,
-    private http: HttpClient,
-    private actual_client: ActualClientIdService,
-    private router: Router) { }
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getAllInvoices();

@@ -32,4 +32,8 @@ export class NavbarComponent implements OnInit, DoCheck {
     this.showSignUp = true;
   }
 
+  deleteAllData(): void {
+    this.authService.deleteAllData();
+  }
+
 }

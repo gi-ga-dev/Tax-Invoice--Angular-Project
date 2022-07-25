@@ -3,7 +3,6 @@ import { AfterViewInit, Component, OnInit, ViewChild, OnChanges } from '@angular
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { IClientsData } from '../../interfaces/iclients-data';
-import { ActualClientIdService } from '../../../actual-client-id.service'
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -37,14 +36,9 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   client_id!: number;
   storedId!: any;
 
-  constructor(
-    private authService: AuthService,
-    private http: HttpClient,
-    private actual_id: ActualClientIdService) { }
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
-  ngOnInit(): void {
-    this.getAllClients();
-  }
+  ngOnInit(): void { this.getAllClients(); }
 
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource(this.clients);
@@ -62,30 +56,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
     if (this.dataSource.paginator) { this.dataSource.paginator.firstPage(); }
   }
 
-  /* get con chiamata async che crea un table e success lo popola con i dati */
-  async getAllClients(): Promise<void> {
-    await this.authService.authSubject.subscribe(client => {
-      this.http.get<IClientsData[]>('http://localhost:4201/clients', {
-        headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
-      })
-        .subscribe(
-          resp => {
-            /* cast dell'oggetto json intero (resp) per tipizzarle in prop come quelle dell'interfaccia */
-            let castResp: IClientsData[] = <IClientsData[]><unknown>resp;
-            this.clients = castResp; // posso ciclare clients e leggere prop castate, con elem.proprieta
-            this.dataSource = new MatTableDataSource(this.clients)
-            this.dataSource.paginator = this.paginator;
-            console.log(this.clients, resp, castResp);
-          },
-          err => {
-            console.log(err);
-            this.error = err.error
-          }
-        )
-    })
-  }
-
-  getAfterDelete() {
+  /* get dei clienti, crea table e success lo popola con i dati */
+  getAllClients() {
     this.authService.authSubject.subscribe(client => {
       this.http.get<IClientsData[]>('http://localhost:4201/clients', {
         headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
@@ -112,7 +84,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
     this.clients.forEach(ele => {
       if (ele.id === id) { this.authService.removeAllInvoices(ele.id); }
     });
-    this.getAfterDelete();
+    this.getAllClients();
   }
 
   saveClient(id: IClientsData): void {

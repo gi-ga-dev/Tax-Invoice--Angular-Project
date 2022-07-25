@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActualClientIdService } from '../../..//actual-client-id.service'
 import { IClientsData } from 'src/app/pages_and_components/client-list/interfaces/iclients-data';
 import { HttpClient } from '@angular/common/http';
 import { ITaxesData } from '../../interfaces/itaxes-data';
@@ -38,7 +37,7 @@ export class InvoicesMatFormComponent implements OnInit {
   parsedInvoice!: ITaxesData;
   idInvoice!: number;
 
-  constructor(private http: HttpClient, private authService: AuthService, private actual_client: ActualClientIdService) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.clearFields();

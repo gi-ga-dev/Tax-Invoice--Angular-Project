@@ -1,5 +1,46 @@
 #footer {
     bottom: 0;
     width: 100%;
+    padding-bottom: 20px;
 }
 
+#footer-details {
+    margin: auto;
+    font-size: 0.75em;
+    color: #343434;
+    letter-spacing: 0.1em;
+}
+
+#footer-icons {
+    margin: auto;
+    padding: 5px 0;
+}
+
+#footer-details span {
+    line-height: 2em;
+    font-size: 1.3em;
+    color: rgb(239, 52, 65);
+}
+
+:host ::ng-deep .mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 35px;
+}
+
+/* --------------- */
+
+#icons i {
+    margin: 0 5px;
+    background-color: #b0b0b0;
+    color: white;
+    font-size: 25px;
+    transition: color 0.2s ease-in;
+    border-radius: 50%;
+    border: 7px solid #b0b0b0;
+}
+
+#icons i:hover {
+    border: 7px solid rgb(239, 52, 65);
+    background-color: rgb(239, 52, 65);
+    cursor: pointer;
+}

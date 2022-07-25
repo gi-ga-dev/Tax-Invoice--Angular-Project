@@ -13,12 +13,14 @@ export class SignupMatCardComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
   hide = true;
+  show = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void { }
 
   onSubmit() {
+    this.show = true;
     this.authService.signup(this.form.value).subscribe(
       resp => {
         console.log(resp);

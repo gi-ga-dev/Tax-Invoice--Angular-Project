@@ -37,51 +37,42 @@
                     <div class="example-element-detail"
                         [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
                         <div class="example-element-description">
-                            <!-- Qui inseriro' i dati completi degli input -->
-                            <span id="title">--- Anagrafica: ---</span>
-                            <div class="container">
-                                <p id="desc-cont"><span id="description">ID Cliente: </span>{{client.id}}
-                                    <span id="description">Nome: </span>{{client.nomeCliente}}
-                                    <span id="description">Cognome: </span>{{client.cognomeCliente}}
-                                    <span id="description">Ragione Sociale: </span>{{client.ragioneSociale}}
-                                    <span id="description">P.Iva: </span>{{client.partitaIva}}
-                                    <span id="description">Tipo Cliente: </span>{{client.tipoCliente}}
-                                </p>
-                            </div>
 
-                            <span id="title">--- Recapiti: ---</span>
-                            <div class="container">
-                                <p id="desc-cont">
-                                    <span id="description">Telefono: </span>{{client.telefono}}
-                                    <span id="description">Email: </span>{{client.email}}
-                                    <span id="description">Pec: </span>{{client.pec}}
-                                </p>
-                            </div>
+                            <mat-card class="example-card">
+                                <mat-card-title-group id="card-cont">
+                                    <mat-card-title>#{{client.id}} {{client.nomeCliente}} {{client.cognomeCliente}}
+                                    </mat-card-title>
+                                    <mat-card-subtitle>
+                                        <b>Telefono:</b> {{client.telefono}}
+                                        <b>Email:</b> {{client.email}}
+                                        <b>Pec:</b> {{client.pec}}
+                                    </mat-card-subtitle>
 
-                            <span id="title">--- Indirizzo Sede Operativa: ---</span>
-                            <div class="container">
-                                <p id="desc-cont">
-                                    <span id="description">Via: </span>{{client.indirizzoSedeOperativa.via}}
-                                    <span id="description">n. </span>{{client.indirizzoSedeOperativa.civico}}
-                                    <span id="description">Cap: </span>{{client.indirizzoSedeOperativa.cap}}
-                                    <span id="description">Comune:
-                                    </span>{{client.indirizzoSedeOperativa.localita.comune}}
-                                    <span id="description">Comune:
-                                    </span>{{client.indirizzoSedeOperativa.localita.provincia}}
-                                </p>
-                            </div>
+                                </mat-card-title-group>
+                                <mat-card-content>
+                                    <b>Ragione Sociale:</b> {{client.ragioneSociale}} - <b>Partita Iva:</b>
+                                    {{client.partitaIva}}
+                                    - <b>Tipo Cliente:</b> {{client.tipoCliente}}
+                                    <br>
+                                    <b>Indirizzo (Sede Operativa):</b>
+                                    Via {{client.indirizzoSedeOperativa.via}}
+                                    n.{{client.indirizzoSedeOperativa.civico}}
+                                    cap: {{client.indirizzoSedeOperativa.cap}}
+                                    comune: {{client.indirizzoSedeOperativa.localita.comune}}
+                                    provincia: {{client.indirizzoSedeOperativa.localita.provincia}}
+                                    <br>
+                                    <b>Indirizzo (Sede Legale):</b>
+                                    Via {{client.indirizzoSedeLegale.via}}
+                                    n.{{client.indirizzoSedeLegale.civico}}
+                                    cap: {{client.indirizzoSedeLegale.cap}}
+                                    {{client.indirizzoSedeLegale.localita.comune}}
+                                    {{client.indirizzoSedeLegale.localita.provincia}}
 
-                            <span id="title">--- Indirizzo Sede Legale: ---</span>
-                            <div class="container">
-                                <p id="desc-cont">
-                                    <span id="description">Via: </span>{{client.indirizzoSedeLegale.via}}
-                                    <span id="description">n. </span>{{client.indirizzoSedeLegale.civico}}
-                                    <span id="description">Cap: </span>{{client.indirizzoSedeLegale.cap}}
-                                    <span id="description">Comune: </span>{{client.indirizzoSedeLegale.localita.comune}}
-                                    <span id="description">Comune:
-                                    </span>{{client.indirizzoSedeLegale.localita.provincia}}
-                                </p>
-                            </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+
+                        <div class="btn-cont">
                             <button mat-button (click)="removeClient(client.id)">
                                 <mat-icon>delete</mat-icon>
                             </button>
@@ -90,11 +81,12 @@
                                 <mat-icon>border_color</mat-icon>
                             </button>
 
-                            <a mat-button (click)="saveForInvoices(client)" href="#"
-                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active"> Fatture
+                            <a mat-button id="a-cont" (click)="saveForInvoices(client)" href="#"
+                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active">
+                                <mat-icon>folder_shared</mat-icon>
                             </a>
-
                         </div>
+
                     </div>
                 </td>
             </ng-container>
@@ -112,6 +104,6 @@
 
         </table>
 
-        <mat-paginator id="table-cont" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users">
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users">
         </mat-paginator>
     </div>

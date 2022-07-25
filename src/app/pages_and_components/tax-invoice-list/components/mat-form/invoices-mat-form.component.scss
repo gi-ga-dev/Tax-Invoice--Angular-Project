@@ -1,26 +1,30 @@
-#form-title {
-    justify-content: center;
-}
-
-#card-cont {
-    justify-content: center
-}
-
-.example-card {
-    max-width: 100%;
-    margin-bottom: 8px;
-    text-align: center;
-    background-color: rgb(240, 240, 240);
-}
+/* ========== Form Cont. ============= */
 
 #form-cont {
     background-color: rgb(240, 240, 240);
+    border: 1px solid rgba(62, 63, 63, 0.363);
+    margin-top: 15px;
     text-align: center;
+    padding: 10px 0;
 }
+
+#title {
+    margin: 5px 0;
+    font-size: 0.7em;
+}
+
+.details-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+}
+
+/* ============ Campi input ============= */
 
 // :host si riferisce a questo componente e i suoi discendenti solamente
 // ::ng-deep fa diventare la classe globale, oppure si usa per selezionare classi interne material
-
 :host ::ng-deep .mat-form-field-infix {
     // dimensioni campi input
     width: 150px !important;
@@ -36,4 +40,36 @@
 :host ::ng-deep .mat-form-field-wrapper {
     // margine tra le righe di input
     margin-bottom: -30px !important;
+}
+
+/* ===== buttons ====== */
+
+.btn-cont {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(240, 240, 240);
+    border-radius: 0;
+    border: 1px solid rgba(62, 63, 63, 0.363);
+    padding: 16px 0;
+}
+
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+:host ::ng-deep .mat-button {
+    width: 20%;
+    height: 50px;
+    background-color: rgba(62, 63, 63, 0.8);
+    color: white;
+    border: 1px solid rgba(62, 63, 63, 0.8);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+:host ::ng-deep .mat-button:hover {
+    color: rgb(239, 52, 65);
 }

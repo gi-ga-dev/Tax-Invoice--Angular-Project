@@ -1,13 +1,13 @@
 <form #f="ngForm" (ngSubmit)="onSubmit()">
     <mat-card class="example-card">
 
-        <mat-card-title>Register Page</mat-card-title>
-        <mat-card-subtitle>Please insert Registration details</mat-card-subtitle>
+        <mat-card-title>Registrati</mat-card-title>
+        <mat-card-subtitle>Inserisci i dettagli della registrazione</mat-card-subtitle>
 
         <mat-card-content>
             <div class="example-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your first name</mat-label>
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci il tuo nome</mat-label>
                     <input matInput ngModel name="firstname" type="text" id="firstname">
                     <mat-icon matSuffix>person</mat-icon>
                 </mat-form-field>
@@ -16,8 +16,8 @@
 
         <mat-card-content>
             <div class="example-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your family name</mat-label>
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci il tuo cognome</mat-label>
                     <input matInput ngModel name="lastname" type="text" id="lastname">
                     <mat-icon matSuffix>people</mat-icon>
                 </mat-form-field>
@@ -26,8 +26,8 @@
 
         <mat-card-content>
             <div class="example-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your email</mat-label>
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci la tua email</mat-label>
                     <input matInput ngModel name="email" type="email" id="email" placeholder="pat@example.com">
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
@@ -36,8 +36,8 @@
 
         <mat-card-content>
             <div class="example-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your password</mat-label>
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci la tua password</mat-label>
                     <input matInput ngModel name="password" id="password" [type]="hide ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
@@ -48,12 +48,14 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-button type="submit">Submit</button>
+            <button mat-button type="submit">Registrati</button>
         </mat-card-actions>
 
-        <mat-card-footer>
-            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            <div *ngIf="error"> {{error}} </div>
+        <mat-card-footer *ngIf="show">
+            <mat-progress-bar color="warn" mode="indeterminate"></mat-progress-bar>
+            <div *ngIf="error">
+                <p id="error">Tutti i campi sono obbligatori</p>
+            </div>
         </mat-card-footer>
 
     </mat-card>

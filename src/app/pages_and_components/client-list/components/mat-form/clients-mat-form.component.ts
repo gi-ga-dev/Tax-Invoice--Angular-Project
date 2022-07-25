@@ -88,13 +88,10 @@ export class ClientsMatFormComponent implements OnInit, AfterContentInit {
     }
   }
 
-  ngOnInit(): void {
-
-    this.clearFields();
-  }
+  ngOnInit(): void { this.clearFields(); }
 
   onSubmit() {
-    this.authService.add_client(this.form.value).subscribe(
+    this.authService.addClient(this.form.value).subscribe(
       resp => {
         console.log(resp);
         this.error = undefined;
@@ -118,7 +115,7 @@ export class ClientsMatFormComponent implements OnInit, AfterContentInit {
 
   modClientAfter(): void {
     // per correggere un bug che non permetteva chiamata delete e post una dopo l'altra
-    this.authService.add_client(this.form.value).subscribe();
+    this.authService.addClient(this.form.value).subscribe();
     this.clearFields();
     sessionStorage.removeItem('storedClient');
     this.authService.reloadRoute();
